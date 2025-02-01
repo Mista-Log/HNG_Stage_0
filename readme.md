@@ -63,7 +63,6 @@ hng_stage_0/
 │   ├── admin.py
 │   ├── apps.py
 │   ├── models.py
-│   ├── serializers.py
 │   ├── tests.py
 │   ├── urls.py
 │   └── views.py
