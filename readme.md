@@ -1,65 +1,94 @@
-# Project Title
-
-A brief description of what this project does and who it's for.
-
-## Table of Contents
-
-- [Description](#description)
-- [Setup Instructions](#setup-instructions)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+# Django Project
 
 ## Description
 
-Provide a more detailed description of the project, its purpose, and its functionalities. Explain what problem it solves and any key features.
+This is a Django project that serves as a starting point for building web applications. It includes a basic setup with Django, a powerful web framework that allows for rapid development and clean, pragmatic design.
+
+## Features
+
+- Admin interface for managing data
+- RESTful API endpoints
+
+## Requirements
+
+- Python 3.x
+- Django 3.x
+- pip (Python package installer)
 
 ## Setup Instructions
-
-Follow these steps to set up the project locally:
 
 1. **Clone the repository:**
     ```bash
     git clone git@github.com:Mista-Log/HNG_Stage_0.git
+    cd yourproject
     ```
-2. **Navigate to the project directory:**
+
+2. **Create a virtual environment:**
     ```bash
-    cd your-repo-name
+    python -m venv venv
+    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
     ```
+
 3. **Install dependencies:**
-    ```bash
-    npm install
-    ```
-    or
     ```bash
     pip install -r requirements.txt
     ```
-    (depending on the project's language and package manager)
 
-4. **Set up environment variables:**
-    Create a `.env` file in the root directory and add the necessary environment variables as specified in `.env.example`.
-
-5. **Run the project:**
+4. **Apply migrations:**
     ```bash
-    npm start
+    python manage.py migrate
     ```
-    or
+
+5. **Create a superuser:**
     ```bash
-    python main.py
+    python manage.py createsuperuser
     ```
-    (depending on the project's language)
 
-## Usage
+6. **Run the development server:**
+    ```bash
+    python manage.py runserver
+    ```
 
-Provide instructions and examples for using the project. Include screenshots if applicable.
+7. **Access the application:**
+    Open your web browser and go to `http://127.0.0.1:8000/`
+
+## Project Structure
+
+```
+hng_stage_0/
+├── baseapp/
+│   ├── __pycache__/
+│   ├── migrations/
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── models.py
+│   ├── serializers.py
+│   ├── tests.py
+│   ├── urls.py
+│   └── views.py
+├── env/
+│   ├── include/
+│   ├── Lib/
+│   ├── Scripts/
+│   └── pyvenv.cfg
+├── hng_stage_0/
+│   ├── __pycache__/
+│   ├── __init__.py
+│   ├── asgi.py
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+├── .gitignore
+├── db.sqlite3
+├── manage.py
+├── Procfile
+├── readme.md
+├──requirements.txt
+└── runtime.txt
+```
 
 ## Contributing
 
-Explain how others can contribute to the project. Include guidelines for submitting issues and pull requests.
+Contributions are welcome! Please open an issue or submit a pull request for any changes.
 
-## License
-
-Specify the license under which the project is distributed. For example:
-```
-MIT License
-```
