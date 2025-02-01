@@ -4,6 +4,6 @@ from . import views
 
 
 urlpatterns = [
-    path('get', views.TaskListAPIView.as_view()),
+    path('get', views.MyJsonView.as_view()),
 ]
 

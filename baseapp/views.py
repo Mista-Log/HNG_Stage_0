@@ -1,24 +1,25 @@
 from django.shortcuts import render
-from .models import Task
-from .serializers import TaskSerializer
-from rest_framework. response import Response
-from rest_framework import status
-from rest_framework.generics import ListAPIView
-from django.http import HttpResponseRedirect
+from django.http import JsonResponse
+from django.views import View
+from datetime import datetime
+import pytz
 
 
 
 
 
+def get_current_datetime():
+    tz = pytz.timezone('UTC')
+    now = datetime.now(tz)
+    return now.strftime('%Y-%m-%dT%H:%M:%SZ')
 
+date = get_current_datetime()
 
-class TaskListAPIView(ListAPIView):
-    queryset = Task.objects.all()
-    serializer_class = TaskSerializer
-    
-    def get(self, request, format=None):
-        tasks = Task.objects.all()
-        serializer = TaskSerializer(tasks, many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
-    def back_link(request):
-            return HttpResponseRedirect("https://hng.tech/hire/python-developers")
+class MyJsonView(View):
+    def get(self, request, *args, **kwargs):
+        data = {
+        "email": "oloyedeibrahimsmile@gmail.com",
+        "current_datetime": date,
+        "github_url": "git@github.com:Mista-Log/HNG_Stage_0.git"
+    }
+        return JsonResponse(data)
